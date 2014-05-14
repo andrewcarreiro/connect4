@@ -1,0 +1,69 @@
+/* Eric Meyer's Reset CSS v2.0 - http://cssreset.com */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+
+
+/*defaults*/
+body{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
+	line-height:1.4;
+}
+
+/*board UI*/
+.connect4{
+	position:relative;
+	width:100%;
+}
+
+.connect4 input.connect4rows{
+	display:block;
+	font-size:18px;
+}
+
+/*after generation*/
+.connect4table{
+	width:100%;
+	position:absolute;
+}
+
+.connect4table div{
+	float:left;
+	background:yellow;
+}
+
+.connect4table div span{
+	display:block;
+	padding-top:100%;
+	position:relative;
+	border-radius: 100%;
+}
+
+.connect4table div span a{
+	position: absolute;
+	height: 80%;
+	width: 80%;
+	margin: 10%;
+	background: #FFF;
+	display: block;
+	border-radius: 100%;
+	top: 0;
+	left: 0;
+}
+
+/*chips*/
+.connect4table i{
+	display: block;
+	position: absolute;
+	border-radius: 100%;
+}
+
+.connect4table i span{
+	display: block;
+	padding-top: 100%;
+	background: red;
+	border-radius: 100%;
+}
+
+.connect4table i.team-1 span{
+	background:blue;
+}
