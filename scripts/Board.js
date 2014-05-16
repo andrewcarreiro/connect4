@@ -100,27 +100,30 @@ var Board = Class.extend({
 		lastPieceY = Number(lastPieceY);
 
 		//eval vertical
-		console.log("PLAYER "+this.currentTeam+"---------------");
+		//console.log("PLAYER "+this.currentTeam+"---------------");
 		var verticalWinCondition = this.evaluateVector(0,1,lastPieceX,lastPieceY)+this.evaluateVector(0,-1,lastPieceX,lastPieceY);
-		console.log("verticalWinCondition: "+verticalWinCondition);
+		//console.log("verticalWinCondition: "+verticalWinCondition);
 		var horizontalWinCondition = this.evaluateVector(1,0,lastPieceX,lastPieceY)+this.evaluateVector(-1,0,lastPieceX,lastPieceY);
-		console.log("horizontalWinCondition: "+horizontalWinCondition);
+		//console.log("horizontalWinCondition: "+horizontalWinCondition);
 		var diagonal1WinCondition = this.evaluateVector(1,-1,lastPieceX,lastPieceY)+this.evaluateVector(-1,1,lastPieceX,lastPieceY);
-		console.log("diagonal1WinCondition: "+diagonal1WinCondition);
+		//console.log("diagonal1WinCondition: "+diagonal1WinCondition);
 		var diagonal2WinCondition = this.evaluateVector(1,1,lastPieceX,lastPieceY)+this.evaluateVector(-1,-1,lastPieceX,lastPieceY);
-		console.log("diagonal2WinCondition: "+diagonal2WinCondition);
+		//console.log("diagonal2WinCondition: "+diagonal2WinCondition);
 		if(verticalWinCondition >= 3){
 			alert('Vertical line win for player '+this.currentTeam);
+			return 1;
 		}else if(horizontalWinCondition >= 3){
 			alert('Horizontal line win for player '+this.currentTeam);
+			return 2;
 		}else if(diagonal1WinCondition >= 3){
 			alert('NE/SW line win for player '+this.currentTeam);
+			return 3;
 		}else if(diagonal2WinCondition >= 3){
 			alert('NW/SE line win for player '+this.currentTeam);
+			return 4;
 		}else{
 			return false;
 		}
-		return true;
 	},
 
 	//used as a method of evaulating specific success vectors in evaluateWin
@@ -129,7 +132,7 @@ var Board = Class.extend({
 		var curY = originy += yincrement;
 		var points = 0;
 
-		while(curY < this.chips.length && curX < this.chips[curY].length && curX >= 0 && curY >= 0 && (typeof(this.chips[curY][curX]) != 'undefined') && (this.chips[curY][curX] === this.currentTeam)){
+		while(curX >= 0 && curY >= 0 && curY < this.chips.length && curX < this.chips[curY].length && (typeof(this.chips[curY][curX]) != 'undefined') && (this.chips[curY][curX] === this.currentTeam)){
 			points++;
 			curX += xincrement;
 			curY += yincrement;

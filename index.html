@@ -16,7 +16,6 @@
 	<script src="scripts/_inheritance.js"></script>
 	<script src="scripts/Board.js"></script>
 	<script src="scripts/BoardUI.js"></script>
-	<script src="scripts/main.js"></script>
 
 	<script id="connect4_template" type="text/tmpl">
 		<input type='number' class='connect4rows xrows' placeholder='Number of Horizontal rows' value="10"/>
@@ -49,5 +48,12 @@
 			-webkit-transition: <%= 10*y %>ms -webkit-transform ease-in;
 			transition: <%= 10*y %>ms transform ease-in;
 		' class="team-<%= team %>"><span></span></i>
+	</script>
+
+	<script>
+		var c4;
+		$(document).ready(function(){
+			c4 = $('.connect4').connect4();
+		});
 	</script>
 </html>

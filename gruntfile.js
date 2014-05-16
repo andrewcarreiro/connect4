@@ -3,7 +3,10 @@ module.exports = function(grunt) {
 	grunt.initConfig({
 		jasmine: {
 			connect4test : {
-				src : 'scripts/*.js',
+				src : [
+						'scripts/Board.js',
+						'scripts/BoardUI.js'
+					],
 				options : {
 					vendor : [
 						'scripts/jquery-2.1.1.min.js',
